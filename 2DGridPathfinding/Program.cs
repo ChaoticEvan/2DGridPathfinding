@@ -1,2 +1,5 @@
 ﻿// This is the body of the main method
-Console.WriteLine("Hello, World!");
+using _2DGridPathfinding.Objects;
+
+GameGrid grid= new GameGrid();
+Console.WriteLine(grid.ToString());
