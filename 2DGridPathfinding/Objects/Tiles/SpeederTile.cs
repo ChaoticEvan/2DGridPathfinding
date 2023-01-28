@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace _2DGridPathfinding.Objects.Tiles
 {
-    public class BlankTile : Tile
+    public class SpeederTile : Tile
     {
-        public BlankTile()
+        public SpeederTile()
         {
-            DeltaHealth = 0;
-            DeltaMoves = -1;
-            TileId = TileId.Blank;
-            TileChar = "_";
+            DeltaMoves = 0;
+            DeltaHealth = -5;
+            TileId = TileId.Speeder;
+            TileChar = ">";
         }
     }
 }

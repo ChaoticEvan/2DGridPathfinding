@@ -11,8 +11,14 @@
         {
             return TileChar;
         }
-        public abstract int AffectMoves();
-        public abstract int AffectHealth();
+        public int AffectMoves()
+        {
+            return DeltaMoves;
+        }
+        public int AffectHealth()
+        {
+            return DeltaHealth;
+        }
     }
 
     public enum TileId

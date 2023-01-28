@@ -15,14 +15,5 @@ namespace _2DGridPathfinding.Objects.Tiles
             TileId = TileId.Start;
             TileChar = "A";
         }
-        public override int AffectHealth()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override int AffectMoves()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
