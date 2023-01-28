@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using _2DGridPathfinding.Objects.Tiles;
 
 namespace _2DGridPathfinding.Objects
 {
     public class GameGrid
     {
+        /// <summary>
+        /// Grid size is specified from problem.pdf
+        /// </summary>
         private const int GRID_SIZE = 100;
         private const int GRID_BORDER_BUFFER = 2;
         private const string BORDER_STRING = "#";
@@ -49,6 +48,9 @@ namespace _2DGridPathfinding.Objects
             stringBuilder.AppendLine();
         }
 
+        /// <summary>
+        /// Testing method for filling grid with blank tiles
+        /// </summary>
         private void FillGridWithBlanks()
         {
             for (int i = 0; i < GRID_SIZE; i++)
@@ -62,6 +64,9 @@ namespace _2DGridPathfinding.Objects
             Grid[99, 99] = new EndTile();
         }
 
+        /// <summary>
+        /// Testing method for filling grid with semi-random tiles
+        /// </summary>
         private void FillGridWithRandomTiles()
         {
             for (int i = 0; i < GRID_SIZE; i++)
@@ -75,6 +80,10 @@ namespace _2DGridPathfinding.Objects
             Grid[99, 99] = new EndTile();
         }
 
+        /// <summary>
+        /// Helper method for filling grid with random tiles
+        /// </summary>
+        /// <returns>A blank tile 50% of the time, speeder tile 30% of the time, lava tile 10% of the time, and mud tile 10% of the time</returns>
         private Tile GetRandomTile()
         {
             Random random = new Random();
