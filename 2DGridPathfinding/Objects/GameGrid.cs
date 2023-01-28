@@ -14,10 +14,10 @@ namespace _2DGridPathfinding.Objects
         private const string BORDER_STRING = "#";
         private Tile[,] Grid;
 
-        public GameGrid() 
+        public GameGrid()
         {
             Grid = new Tile[100, 100];
-            FillGridWithBlanks();
+            FillGridWithRandomTiles();
         }
 
         public override string ToString()
@@ -30,7 +30,7 @@ namespace _2DGridPathfinding.Objects
                 stringBuilder.Append(BORDER_STRING);
                 for (int j = 0; j < GRID_SIZE; j++)
                 {
-                    stringBuilder.Append(Grid[i,j].ToString());
+                    stringBuilder.Append(Grid[i, j].ToString());
                 }
                 stringBuilder.Append(BORDER_STRING);
                 stringBuilder.AppendLine();
@@ -42,7 +42,7 @@ namespace _2DGridPathfinding.Objects
 
         private void PrintTopOrBottomBorder(StringBuilder stringBuilder)
         {
-            for(int i = 0; i < GRID_SIZE + GRID_BORDER_BUFFER; i++)
+            for (int i = 0; i < GRID_SIZE + GRID_BORDER_BUFFER; i++)
             {
                 stringBuilder.Append(BORDER_STRING);
             }
@@ -59,8 +59,44 @@ namespace _2DGridPathfinding.Objects
                 }
             }
             Grid[0, 0] = new StartTile();
-            Grid[99,99] = new EndTile();
+            Grid[99, 99] = new EndTile();
         }
 
+        private void FillGridWithRandomTiles()
+        {
+            for (int i = 0; i < GRID_SIZE; i++)
+            {
+                for (int j = 0; j < GRID_SIZE; j++)
+                {
+                    Grid[i, j] = GetRandomTile();
+                }
+            }
+            Grid[0, 0] = new StartTile();
+            Grid[99, 99] = new EndTile();
+        }
+
+        private Tile GetRandomTile()
+        {
+            Random random = new Random();
+            int next = random.Next(0, 10);
+            switch (next)
+            {
+                default:
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    return new BlankTile();
+                case 5:
+                case 6:
+                case 7:
+                    return new SpeederTile();
+                case 8:
+                    return new LavaTile();
+                case 9:
+                    return new MudTile();
+            }
+        }
     }
 }
