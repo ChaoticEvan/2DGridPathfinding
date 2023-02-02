@@ -14,10 +14,10 @@ namespace _2DGridPathfinding.Objects
         private const int GRID_SIZE = 100;
         private const int GRID_BORDER_BUFFER = 2;
 
-        private const int START_X_COORDINATE = 1;
-        private const int START_Y_COORDINATE = 1;
-        private const int END_X_COORDINATE = 9;
-        private const int END_Y_COORDINATE = 9;
+        private const int START_X_COORDINATE = 0;
+        private const int START_Y_COORDINATE = 0;
+        private const int END_X_COORDINATE = 0;
+        private const int END_Y_COORDINATE = 99;
 
 
         private const string BORDER_STRING = "#";
@@ -95,13 +95,12 @@ namespace _2DGridPathfinding.Objects
 
                 }
             }
-            Grid[0, 0] = new StartTile();
-            Grid[0, 0].SetState(0, 0);
-            StartState = Grid[0, 0].GetState();
-
-            Grid[99, 99] = new EndTile();
-            Grid[99, 99].SetState(99, 99);
-            EndState = Grid[99, 99].GetState();
+            Grid[START_X_COORDINATE, START_Y_COORDINATE] = new StartTile();
+            Grid[START_X_COORDINATE, START_X_COORDINATE].SetState(START_X_COORDINATE, START_X_COORDINATE);
+            StartState = Grid[START_X_COORDINATE, START_X_COORDINATE].GetState();
+            Grid[END_X_COORDINATE, END_Y_COORDINATE] = new EndTile();
+            Grid[END_X_COORDINATE, END_Y_COORDINATE].SetState(END_X_COORDINATE, END_Y_COORDINATE);
+            EndState = Grid[END_X_COORDINATE, END_Y_COORDINATE].GetState();
         }
 
         /// <summary>
