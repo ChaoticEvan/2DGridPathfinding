@@ -8,8 +8,8 @@ namespace _2DGridPathfinding.Searcher
         private GameGrid GameGrid;
 
         private const double DISTANCE_WEIGHT = 1.0; 
-        private const double HEALTH_WEIGHT = 1.0;
-        private const double MOVES_WEIGHT = 2.5;
+        private const double HEALTH_WEIGHT = 5;
+        private const double MOVES_WEIGHT = 12.5;
 
         public Heuristic(GameGrid gameGrid)
         {

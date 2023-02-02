@@ -51,7 +51,6 @@ namespace _2DGridPathfinding.Searcher
 
         public List<Tuple<State, Transition>> Search()
         {
-
             PushState(CurrentState, 0);
 
             while (TileQueue.Count > 0)
