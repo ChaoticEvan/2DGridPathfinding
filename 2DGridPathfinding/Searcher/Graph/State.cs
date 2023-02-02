@@ -14,6 +14,11 @@ namespace _2DGridPathfinding.Searcher.Graph
         public State()
         {
         }
+
+        public override string ToString()
+        {
+            return xCoordinate.ToString() + " " + yCoordinate.ToString();
+        }
     }
 
     public enum Transition

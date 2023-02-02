@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using _2DGridPathfinding.GameObjects;
 using _2DGridPathfinding.Objects.Tiles;
 using _2DGridPathfinding.Searcher;
 using _2DGridPathfinding.Searcher.Graph;
@@ -15,8 +16,8 @@ namespace _2DGridPathfinding.Objects
 
         private const int START_X_COORDINATE = 1;
         private const int START_Y_COORDINATE = 1;
-        private const int END_X_COORDINATE = 6;
-        private const int END_Y_COORDINATE = 6;
+        private const int END_X_COORDINATE = 9;
+        private const int END_Y_COORDINATE = 9;
 
 
         private const string BORDER_STRING = "#";
@@ -27,7 +28,7 @@ namespace _2DGridPathfinding.Objects
         public GameGrid()
         {
             Grid = new Tile[100, 100];
-            FillGridWithBlanks();
+            FillGridWithRandomTiles();
         }
 
         public override string ToString()
@@ -182,6 +183,11 @@ namespace _2DGridPathfinding.Objects
             }
 
             return children;
+        }
+
+        public Tile GetTile(int x, int y)
+        {
+            return Grid[x, y];
         }
     }
 }

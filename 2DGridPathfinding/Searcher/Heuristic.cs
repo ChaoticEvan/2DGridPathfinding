@@ -9,7 +9,7 @@ namespace _2DGridPathfinding.Searcher
 
         private const double DISTANCE_WEIGHT = 1.0; 
         private const double HEALTH_WEIGHT = 1.0;
-        private const double MOVES_WEIGHT = 1.0;
+        private const double MOVES_WEIGHT = 2.5;
 
         public Heuristic(GameGrid gameGrid)
         {
@@ -18,7 +18,9 @@ namespace _2DGridPathfinding.Searcher
 
         public double GetCost(State currentPosition)
         {
-            return DISTANCE_WEIGHT * CalculateEuclideanDistance(currentPosition);
+            return (DISTANCE_WEIGHT * CalculateEuclideanDistance(currentPosition)) + 
+                (HEALTH_WEIGHT * CalculateHealthScore(currentPosition)) + 
+                (MOVES_WEIGHT * CalculateMoveScore(currentPosition));
         }
 
         private double CalculateEuclideanDistance(State currentPosition)
@@ -29,6 +31,16 @@ namespace _2DGridPathfinding.Searcher
             int endYCoordinate = GameGrid.EndState.yCoordinate;
 
             return Math.Pow(Math.Pow(currentXCoordinate - endXCoordinate, 2) + Math.Pow(currentYCoordinate - endYCoordinate, 2), 0.5);
+        }
+
+        private double CalculateHealthScore(State currentPosition)
+        {
+            return GameGrid.GetTile(currentPosition.xCoordinate, currentPosition.yCoordinate).AffectHealth();
+        }
+
+        private double CalculateMoveScore(State currentPosition)
+        {
+            return GameGrid.GetTile(currentPosition.xCoordinate, currentPosition.yCoordinate).AffectMoves();
         }
     }
 }
