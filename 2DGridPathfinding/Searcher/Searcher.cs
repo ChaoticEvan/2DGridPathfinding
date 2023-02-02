@@ -88,6 +88,8 @@ namespace _2DGridPathfinding.Searcher
 
                     PushState(child.Item1, totalCost);
                 }
+
+                Visited.Add(CurrentState);
             }
 
             List<Transition> path = new List<Transition>();
