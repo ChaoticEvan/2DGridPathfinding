@@ -8,8 +8,8 @@ GameGrid grid = new GameGrid();
 Console.WriteLine(grid.ToString());
 
 Searcher searcher = new Searcher(grid);
-List<Transition> moves = searcher.Search();
+List<Tuple<State, Transition>> moves = searcher.Search();
 foreach(var move in moves)
 {
-    Console.WriteLine(move);
+    Console.WriteLine(move.Item1 + " " + move.Item2);
 }

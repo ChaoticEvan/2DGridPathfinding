@@ -49,7 +49,7 @@ namespace _2DGridPathfinding.Searcher
             return false;
         }
 
-        public List<Transition> Search()
+        public List<Tuple<State, Transition>> Search()
         {
 
             PushState(CurrentState, 0);
@@ -92,14 +92,14 @@ namespace _2DGridPathfinding.Searcher
                 Visited.Add(CurrentState);
             }
 
-            List<Transition> path = new List<Transition>();
+            List<Tuple<State, Transition>> path = new List<Tuple<State, Transition>>();
 
             while (!CurrentState.Equals(GameGrid.StartState))
             {
                 State fromState = Parents[CurrentState].Item1;
                 Transition fromTransition = Parents[CurrentState].Item2;
 
-                path.Add(fromTransition);
+                path.Add(new Tuple<State, Transition>(fromState, fromTransition));
                 CurrentState = fromState;
             }
 
